@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import icons from './icons';
 
-class Icon extends Component {
+class Icon extends React.Component {
 	render () {
 		return <span dangerouslySetInnerHTML={{ __html: icons[this.props.type] }} {...this.props} />;
 	}

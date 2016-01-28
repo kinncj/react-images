@@ -1,9 +1,8 @@
 /* eslint react/prop-types: 0 */
 
-import React from 'react';
-import { render } from 'react-dom';
-import Lightbox from 'react-images';
-import Gallery from './components/Gallery';
+import React      from 'react';
+import { render } from './../../src/ReactImages';
+import Gallery    from './components/Gallery';
 
 function capitalizeFirstLetter(str) {
 	return str.charAt(0).toUpperCase() + str.slice(1);

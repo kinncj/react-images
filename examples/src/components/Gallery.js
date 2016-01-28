@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react';
-import Lightbox from 'react-images';
+import React        from 'react';
+import { Lightbox } from './../../../src/ReactImages';
 
-class Gallery extends Component {
+class Gallery extends React.Component {
 	constructor() {
 		super();
 
@@ -76,10 +76,10 @@ class Gallery extends Component {
 
 Gallery.displayName = 'Gallery';
 Gallery.propTypes = {
-	images: PropTypes.array,
-	heading: PropTypes.string,
-	subheading: PropTypes.string,
-	sepia: PropTypes.bool,
+	images: React.PropTypes.array,
+	heading: React.PropTypes.string,
+	subheading: React.PropTypes.string,
+	sepia: React.PropTypes.bool,
 };
 
 const THUMBNAIL_SIZE = 72;

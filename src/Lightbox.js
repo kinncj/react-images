@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import useSheet from 'react-jss';
 import jss from 'jss';
 import camelCase from 'jss-camel-case';
@@ -17,7 +17,7 @@ import Portal from './Portal';
 
 import defaultStyles from './styles/default';
 
-class Lightbox extends Component {
+class Lightbox extends React.Component {
 	static theme(themeStyles) {
 		let extStyles = Object.assign({}, defaultStyles);
 		for (let key in extStyles) {
@@ -208,24 +208,24 @@ class Lightbox extends Component {
 
 Lightbox.displayName = 'Lightbox';
 Lightbox.propTypes = {
-	backdropClosesModal: PropTypes.bool,
-	currentImage: PropTypes.number,
-	enableKeyboardInput: PropTypes.bool,
-	images: PropTypes.arrayOf(
-		PropTypes.shape({
-			src: PropTypes.string.isRequired,
-			srcset: PropTypes.array,
-			caption: PropTypes.string
+	backdropClosesModal: React.PropTypes.bool,
+	currentImage: React.PropTypes.number,
+	enableKeyboardInput: React.PropTypes.bool,
+	images: React.PropTypes.arrayOf(
+		React.PropTypes.shape({
+			src: React.PropTypes.string.isRequired,
+			srcset: React.PropTypes.array,
+			caption: React.PropTypes.string
 		})
 	).isRequired,
-	isOpen: PropTypes.bool,
-	onClickShowNextImage: PropTypes.bool,
-	onClickNext: PropTypes.func.isRequired,
-	onClickPrev: PropTypes.func.isRequired,
-	onClose: PropTypes.func.isRequired,
-	showCloseButton: PropTypes.bool,
-	showImageCount: PropTypes.bool,
-	width: PropTypes.number,
+	isOpen: React.PropTypes.bool,
+	onClickShowNextImage: React.PropTypes.bool,
+	onClickNext: React.PropTypes.func.isRequired,
+	onClickPrev: React.PropTypes.func.isRequired,
+	onClose: React.PropTypes.func.isRequired,
+	showCloseButton: React.PropTypes.bool,
+	showImageCount: React.PropTypes.bool,
+	width: React.PropTypes.number
 };
 Lightbox.defaultProps = {
 	enableKeyboardInput: true,
