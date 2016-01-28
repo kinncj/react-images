@@ -27,8 +27,8 @@ class Lightbox extends React.Component {
 		}
 		return extStyles;
 	}
-	constructor() {
-		super();
+	constructor(props, context) {
+		super(props, context);
 
 		this.close = this.close.bind(this);
 		this.gotoNext = this.gotoNext.bind(this);
@@ -36,6 +36,10 @@ class Lightbox extends React.Component {
 		this.handleImageClick = this.handleImageClick.bind(this);
 		this.handleKeyboardInput = this.handleKeyboardInput.bind(this);
 		this.handleResize = this.handleResize.bind(this);
+
+		this.state = {
+			windowHeight: window ? window.innerHeight : 0
+		}
 	}
 	componentWillReceiveProps (nextProps) {
 		if (nextProps.isOpen && nextProps.enableKeyboardInput) {
@@ -132,7 +136,10 @@ class Lightbox extends React.Component {
 		);
 	}
 	renderDialog () {
-		if (!this.props.isOpen) return;
+		if (!this.props.isOpen) {
+			return;
+		}
+
 		const { classes } = this.props.sheet;
 
 		return (

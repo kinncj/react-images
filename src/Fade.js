@@ -4,35 +4,33 @@ class Fade extends React.Component {
 	constructor (props, context) {
 		super(props, context);
 
-		this._showElement = this._showElement.bind(this);
-		this._hideElement = this._hideElement.bind(this);
-
 		let style = {
-			opacity:          0,
-			WebkitTransition: `opacity ${this.props.duration}ms ease-out`,
-			msTransition:     `opacity ${this.props.duration}ms ease-out`,
-			transition:       `opacity ${this.props.duration}ms ease-out`
+			WebkitTransition: `opacity ${this.props.duration}ms ease-in`,
+			msTransition:     `opacity ${this.props.duration}ms ease-in`,
+			transition:       `opacity ${this.props.duration}ms ease-in`
 		};
 
 		this.state = {
-			style: Object.assign(style, props.style)
+			style: Object.assign(style, props.style),
+			opacity: 0
 		};
+
+		this.mounted = true;
 	}
+
 	componentDidMount () {
-		this._showElement();
+		setTimeout(this._showElement.bind(this), 2);
 	}
-	componentWillReceiveProps () {
-		this._hideElement();
-		this._showElement();
-	}
+
 	_showElement () {
-		this.setState({style: {opacity: 1}});
+		this.setState({opacity: 1});
 	}
-	_hideElement () {
-		this.setState({style: {opacity: 0}});
-	}
+
 	render () {
 		let props = Object.assign(this.state, this.props);
+
+		props.style.opacity = this.state.opacity;
+		props.id = 'xupleto';
 
 		return React.createElement(
 			this.props.component,
